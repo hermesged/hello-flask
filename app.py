@@ -10,10 +10,22 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route('/hello', methods=["POST"])
+@app.route('/hello', methods=["POST", "GET"])
 def hello():
-    name = request.form['name']
-    return render_template("hello.html", name=name)
+    if request.method == "POST":
+        name = request.form['name'].strip()
+        if name != "":
+            return render_template("hello.html", name=name)
+        return render_template('about.html')
+    return render_template('about.html')
     
+@app.route('/hello/<string:name>')
+def hello_for_get(name):
+    name =name.strip()
+    if name != "":
+        return render_template("hello.html", name=name)
+    return render_template('about.html')
+
+
 if __name__== "__main__":
     app.run(debug=True)
