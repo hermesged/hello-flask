@@ -34,7 +34,7 @@ hello-flask/
 
 1. git clone git@github.com:hermesged/hello-flask.git
 2. cd hello-flask
-3. python -m venv env
+3. python3 -m venv env
 4. source env/bin/activate
 5. pip install flask
 6. export FLASK_APP=app.py
