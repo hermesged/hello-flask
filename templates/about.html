@@ -9,7 +9,7 @@
         <h1>About Me</h1>
         <p>My name Hermes. I leave in France. I'm a successful man. I'm rich. I have a lovely wife, lovely children. I bought a nice car. And you ? What's your name ?</p>
         
-        <form action="hello.html" method="get">
+        <form action="{{ url_for('hello') }}" method="get">
             <input type="text" name="name" placeholder="Your name">
             <input type="submit" value="Send">
         </form>
