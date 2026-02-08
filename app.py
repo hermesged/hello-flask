@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -13,17 +13,16 @@ def about():
 @app.route('/hello', methods=["POST"])
 def hello_post():
     name = request.form.get('name', '').strip()
-    if name:
-        return render_template("hello.html", name=name)
-    return render_template('about.html')
+    if not name:
+        return redirect(url_for('about'))
+    return render_template("hello.html", name=name)
     
 @app.route('/hello/<string:name>')
 def hello_get(name):
     name = name.strip()
-    if name:
-        return render_template("hello.html", name=name)
-    return render_template('about.html')
-
+    if not name:
+        return redirect(url_for('about'))
+    return render_template("hello.html", name=name)
 
 if __name__== "__main__":
     app.run(debug=True)
