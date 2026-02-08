@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page</title>
-    </head>
-    <body>
-        <h1>Hello my friend. Hope you are good...</h1>
-        <p>If you want to know more about me, clic <a href="{{ url_for('about') }}">here</a></p>
-    </body>
+{% extends "base.html" %}
 
-</html>
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+        <h1>Hello my friend. Hope you are good...</h1>
+        <p>If you want to know more about me, click <a href="{{ url_for('about') }}">here</a></p>
+   
+{% endblock %}

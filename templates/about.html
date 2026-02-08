@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About</title>
-    </head>
-    <body>
-        <h1>About Me</h1>
-        <p>My name Hermes. I leave in France. I'm a successful man. I'm rich. I have a lovely wife, lovely children. I bought a nice car. And you ? What's your name ?</p>
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+       <h1>About Me</h1>
+        <p>My name Hermes. I live in France. I'm a successful man. I'm rich. I have a lovely wife, lovely children. I bought a nice car. And you ? What's your name ?</p>
         
         <form action="{{ url_for('hello_post') }}" method="post">
             <input type="text" name="name" placeholder="Your name">
             <input type="submit" value="Send">
         </form>
-    </body>
-</html>
+
+{% endblock %}
+ 
